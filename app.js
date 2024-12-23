@@ -135,8 +135,14 @@ app.delete('/media/:filename', async (req, res) => {
 // Serve Uploaded Files
 app.use('/uploads', express.static(uploadsDir));
 
+// API Endpoint for API Check
+app.get('/api', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
 // Start the Server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
